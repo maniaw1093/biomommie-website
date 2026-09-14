@@ -47,6 +47,7 @@
     }
     mount.innerHTML = `<div class="grid g4">${items.map(p => window.renderProductCard(p)).join('')}</div>`;
     window.bindProductCardEvents(mount);
+    if(window.observeReveals) window.observeReveals(mount);
   }
 
   window.Wishlist = { getWishlist, isWishlisted, toggleWishlist };

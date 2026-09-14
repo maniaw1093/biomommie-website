@@ -1,0 +1,33 @@
+<!--TITLE: Contact Us | BIOMOMMIE-->
+<!--DESC: Get in touch with the BIOMOMMIE team.-->
+<main class="simple-page">
+  <div class="container">
+    <div class="grid contact-grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h1 style="margin:16px 0 20px">We'd love to hear from you.</h1>
+        <p class="text-muted" style="margin-bottom:28px">Questions about sizing, an order, or just want to say hello — reach out and we'll get back to you shortly.</p>
+        <p style="margin-bottom:10px"><strong>Email</strong><br><span class="text-muted" id="contactEmail"></span></p>
+        <p style="margin-bottom:10px"><strong>WhatsApp</strong><br><span class="text-muted" id="contactWhatsapp"></span></p>
+        <p><strong>Hours</strong><br><span class="text-muted">Monday–Saturday, 10am–6pm IST</span></p>
+      </div>
+      <div>
+        <form data-fake-submit="Thank you for reaching out — we'll be in touch within 1–2 business days.">
+          <div class="form-group"><label>Name</label><input type="text" required></div>
+          <div class="form-group"><label>Email</label><input type="email" required></div>
+          <div class="form-group"><label>Order Number (optional)</label><input type="text"></div>
+          <div class="form-group"><label>Message</label><textarea rows="5" required></textarea></div>
+          <button type="submit" class="btn btn-dark btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if(window.SITE_CONFIG){
+    const e = document.getElementById('contactEmail'); if(e) e.textContent = window.SITE_CONFIG.SUPPORT_EMAIL;
+    const w = document.getElementById('contactWhatsapp'); if(w) w.textContent = '+' + window.SITE_CONFIG.SUPPORT_WHATSAPP;
+  }
+});
+</script>

@@ -116,5 +116,11 @@
   document.addEventListener('DOMContentLoaded', () => {
     updateCountBadge();
     renderCartPage();
+    const relatedGrid = document.getElementById('cartRelatedGrid');
+    if(relatedGrid && window.PRODUCTS && window.renderProductGrid){
+      const cartSlugs = getCart().map(l => l.slug);
+      const list = window.PRODUCTS.filter(p => !cartSlugs.includes(p.slug)).slice(0,4);
+      window.renderProductGrid(relatedGrid, list);
+    }
   });
 })();

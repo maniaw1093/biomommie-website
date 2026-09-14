@@ -107,7 +107,7 @@
   function renderProductCard(p){
     const wishlisted = window.Wishlist && window.Wishlist.isWishlisted(p.slug);
     return `
-    <div class="product-card reveal" data-slug="${p.slug}">
+    <div class="product-card" data-slug="${p.slug}">
       <a href="${window.SITE_BASE}product.html?slug=${p.slug}" class="product-media" aria-label="${p.name}">
         <img src="${p.gallery.front}" alt="${p.name}">
         <img class="img-hover" src="${p.gallery.wearing}" alt="">
@@ -150,6 +150,7 @@
     if(!container) return;
     container.innerHTML = list.map(renderProductCard).join('');
     bindProductCardEvents(container);
+    if(window.observeReveals) window.observeReveals(container);
   }
 
   window.PRODUCTS = PRODUCTS;
@@ -185,7 +186,8 @@
       function apply(){
         let list = PRODUCTS.slice();
         if(catFixed === 'gifting') list = list.filter(p => p.gifting);
-        else if(catFixed) list = list.filter(p => p.category === catFixed || (catFixed==='clothing' && p.category!=='gifting'));
+        else if(catFixed === 'newborn-age') list = list.filter(p => p.ageGroup === 'newborn');
+        else if(catFixed === 'clothing') list = list.filter(p => !p.gifting || p.category !== 'gifting');
         if(ageParam) list = list.filter(p => p.ageGroup === ageParam);
         if(catParam) list = list.filter(p => p.category === catParam);
         if(q) list = list.filter(p => (p.name+p.short+p.desc).toLowerCase().includes(q));

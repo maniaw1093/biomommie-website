@@ -177,6 +177,7 @@ p{color:var(--text)}
   font-size:.6rem;font-weight:700;width:16px;height:16px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;font-family:var(--font-sans);
 }
+.icon-count[hidden]{display:none}
 .menu-toggle{display:none;color:var(--ivory);width:24px;height:24px}
 .site-header.is-solid .menu-toggle{color:var(--charcoal)}
 
@@ -203,6 +204,12 @@ p{color:var(--text)}
   border-bottom:1px solid var(--border);color:var(--charcoal);
 }
 .mobile-nav-icons{display:flex;gap:28px;margin-top:40px}
+
+.search-overlay{
+  position:fixed;inset:0;background:rgba(42,37,30,.92);z-index:1100;
+  display:flex;align-items:flex-start;justify-content:center;padding-top:14vh;
+}
+.search-overlay[hidden]{display:none}
 
 /* ============================================================
    HERO
@@ -271,7 +278,7 @@ p{color:var(--text)}
    PRODUCT CARDS / GRID
    ============================================================ */
 .product-card{position:relative}
-.product-media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cream);border-radius:2px}
+.product-media{display:block;position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--cream);border-radius:2px}
 .product-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:opacity .5s var(--ease)}
 .product-media img.img-hover{opacity:0}
 .product-card:hover .img-hover{opacity:1}

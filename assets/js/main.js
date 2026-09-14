@@ -17,7 +17,40 @@ window.showToast = function(message){
   window.__toastTimer = setTimeout(()=>toast.classList.remove('is-visible'), 2600);
 };
 
+function hydrateMedia(){
+  if(!window.MEDIA) return;
+  document.querySelectorAll('[data-media]').forEach(el => {
+    const parts = el.dataset.media.split('.');
+    let val = window.MEDIA;
+    for(const p of parts){ if(val == null) break; val = val[p]; }
+    if(val == null) return;
+    if(typeof val === 'object' && val.url) val = val.url;
+    if(typeof val !== 'string') return;
+    if(el.tagName === 'IMG' || el.tagName === 'SOURCE'){ el.src = val; }
+    else { el.style.backgroundImage = `url(${val})`; }
+  });
+
+  const heroMedia = document.getElementById('heroMedia');
+  if(heroMedia){
+    const videos = window.MEDIA.heroVideo || [];
+    const posterUrl = (window.MEDIA.hero && window.MEDIA.hero[0]) || '';
+    if(videos.length){
+      const src = videos[0].url || videos[0];
+      heroMedia.innerHTML = `<video autoplay muted loop playsinline poster="${posterUrl}"><source src="${src}" type="video/mp4"></video>`;
+    } else {
+      heroMedia.innerHTML = `<img src="${posterUrl}" alt="A mother holding her newborn in a softly lit, natural home">`;
+    }
+  }
+
+  const signatureMedia = document.getElementById('signatureMedia');
+  if(signatureMedia && window.PRODUCTS){
+    const sig = window.PRODUCTS.find(p => p.signature) || window.PRODUCTS[0];
+    signatureMedia.innerHTML = `<img src="${sig.gallery.lifestyle}" alt="${sig.name}">`;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  hydrateMedia();
 
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('siteHeader');
@@ -74,21 +107,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if(match){ link.style.opacity = '1'; link.style.fontWeight = '700'; }
   });
 
-  /* ---------- Reveal on scroll ---------- */
-  const revealEls = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window && revealEls.length){
-    const io = new IntersectionObserver((entries) => {
+  /* ---------- Reveal on scroll ----------
+     Content rendered dynamically after this point (product grids, cart/
+     wishlist lines, etc.) calls window.observeReveals(container) itself —
+     see products.js — since it doesn't exist yet for this initial pass. */
+  let revealObserver = null;
+  if('IntersectionObserver' in window){
+    revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
-    revealEls.forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   } else {
-    revealEls.forEach(el => el.classList.add('is-visible'));
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   }
+  window.observeReveals = function(root){
+    const scope = (root || document);
+    const els = scope.querySelectorAll('.reveal:not(.is-visible)');
+    if(revealObserver){ els.forEach(el => revealObserver.observe(el)); }
+    else { els.forEach(el => el.classList.add('is-visible')); }
+  };
 
   /* ---------- Accordions (product page, FAQs) ---------- */
   document.querySelectorAll('.accordion').forEach(acc => {

@@ -1,0 +1,39 @@
+<!--TITLE: Building Your Newborn Wardrobe | The BioMommie Journal-->
+<!--DESC: A considered approach to building a newborn wardrobe — the pieces you actually need, and how many of each.-->
+<main class="simple-page" style="padding-top:calc(var(--header-h) + 40px)">
+  <div class="container">
+    <div class="journal-hero reveal is-visible" style="margin-bottom:32px">
+      <img data-media="journal.building-newborn-wardrobe" alt="A folded newborn wardrobe of soft cotton pieces">
+    </div>
+    <div class="article-body">
+      <span class="eyebrow text-center" style="display:block">Newborn Guide</span>
+      <h1 class="text-center serif" style="margin:16px 0">Building Your Newborn Wardrobe</h1>
+      <div class="article-meta"><span>The BioMommie Journal</span><span>&middot;</span><span>5 min read</span></div>
+
+      <p>A newborn wardrobe doesn't need to be extensive — it needs to be considered. A handful of well-made, versatile pieces will see you through the first few months far better than a closet full of things worn once.</p>
+
+      <h3>Start with the basics</h3>
+      <p>Bodysuits and rompers do the most work in a newborn wardrobe — easy to layer, easy to change, and comfortable for long stretches of sleep. A good starting point is five to seven bodysuits and three to four rompers, in soft, easy-to-mix neutral tones.</p>
+
+      <h3>Add for the in-between moments</h3>
+      <p>A sleepsuit or two for naps, a knot gown for the very first days, and two or three muslin swaddles round things out. These are the pieces you'll reach for most often, so it's worth choosing ones that feel as good as they look.</p>
+
+      <h3>Think in seasons, not sizes</h3>
+      <p>Rather than buying every size in advance, it helps to think about which season each size will actually be worn in. A heavier knit sleepsuit makes sense for a winter newborn; lighter cotton interlock suits a summer one. Buy a stage at a time, and let your baby's actual growth guide the next round.</p>
+
+      <p>The goal isn't a full closet — it's a small, thoughtful rotation of pieces that make morning and midnight changes just a little bit easier, for both of you.</p>
+    </div>
+
+    <div class="related">
+      <div class="section-head left"><span class="eyebrow">Shop The Guide</span><h2>Wardrobe essentials</h2></div>
+      <div class="grid g4" id="journalRelated"></div>
+    </div>
+  </div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if(window.PRODUCTS && window.renderProductGrid){
+    window.renderProductGrid(document.getElementById('journalRelated'), window.PRODUCTS.filter(p=>p.ageGroup==='newborn'));
+  }
+});
+</script>
