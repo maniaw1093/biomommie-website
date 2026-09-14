@@ -1,0 +1,72 @@
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <div class="header-side left">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+      <nav class="main-nav hide-mobile" aria-label="Primary">
+        <a href="{{BASE}}shop/index.html" data-nav="shop">Shop</a>
+        <a href="{{BASE}}shop/newborn.html" data-nav="newborn">Newborn</a>
+        <a href="{{BASE}}shop/clothing.html" data-nav="clothing">Clothing</a>
+        <a href="{{BASE}}shop/gifting.html" data-nav="gifting">Gifting</a>
+      </nav>
+    </div>
+
+    <a href="{{BASE}}index.html" class="logo" data-nav="home">BIOMOMMIE</a>
+
+    <div class="header-side right">
+      <nav class="main-nav hide-mobile" aria-label="Secondary">
+        <a href="{{BASE}}our-story.html" data-nav="our-story">Our Story</a>
+        <a href="{{BASE}}journal/index.html" data-nav="journal">Journal</a>
+      </nav>
+      <div class="icon-row">
+        <button class="icon-btn hide-mobile" id="searchToggle" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.4"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <a href="{{BASE}}account.html" class="icon-btn hide-mobile" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 20c1.6-3.4 4.5-5.2 7.5-5.2S17.9 16.6 19.5 20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </a>
+        <a href="{{BASE}}wishlist.html" class="icon-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 20.4S3.6 15.2 3.6 9.3C3.6 6.4 5.8 4.3 8.5 4.3c1.7 0 3 .8 3.5 1.9.5-1.1 1.8-1.9 3.5-1.9 2.7 0 4.9 2.1 4.9 5 0 5.9-8.4 11.1-8.4 11.1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <span class="icon-count" id="wishlistCount" hidden>0</span>
+        </a>
+        <a href="{{BASE}}cart.html" class="icon-btn" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 8h11l.9 12.2a1 1 0 0 1-1 1.08H6.6a1 1 0 0 1-1-1.08L6.5 8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="icon-count" id="cartCount" hidden>0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-top">
+    <a href="{{BASE}}index.html" class="logo">BIOMOMMIE</a>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="{{BASE}}shop/index.html">Shop</a>
+    <a href="{{BASE}}shop/newborn.html">Newborn</a>
+    <a href="{{BASE}}shop/clothing.html">Clothing</a>
+    <a href="{{BASE}}shop/gifting.html">Gifting</a>
+    <a href="{{BASE}}our-story.html">Our Story</a>
+    <a href="{{BASE}}journal/index.html">Journal</a>
+  </nav>
+  <div class="mobile-nav-icons">
+    <a href="{{BASE}}account.html" aria-label="Account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 20c1.6-3.4 4.5-5.2 7.5-5.2S17.9 16.6 19.5 20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+    <a href="{{BASE}}wishlist.html" aria-label="Wishlist"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20.4S3.6 15.2 3.6 9.3C3.6 6.4 5.8 4.3 8.5 4.3c1.7 0 3 .8 3.5 1.9.5-1.1 1.8-1.9 3.5-1.9 2.7 0 4.9 2.1 4.9 5 0 5.9-8.4 11.1-8.4 11.1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay" hidden style="position:fixed;inset:0;background:rgba(42,37,30,.92);z-index:1100;display:flex;align-items:flex-start;justify-content:center;padding-top:14vh">
+  <div style="width:min(560px,88vw)">
+    <form id="searchForm" style="border-bottom:1px solid rgba(250,247,241,.4);display:flex;align-items:center;gap:14px;padding-bottom:14px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color:#FAF7F1"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.4"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input id="searchInput" type="text" placeholder="Search products…" style="flex:1;background:transparent;border:none;outline:none;color:#FAF7F1;font-size:1.2rem;font-family:var(--font-serif)">
+      <button type="button" id="searchClose" aria-label="Close search" style="color:#FAF7F1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+    </form>
+    <p style="color:rgba(250,247,241,.5);font-size:.8rem;margin-top:14px">Try “romper”, “swaddle” or “gift box”</p>
+  </div>
+</div>
