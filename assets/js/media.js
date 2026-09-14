@@ -12,8 +12,12 @@
    ============================================================ */
 
 (function(){
-  function ph(w,h,bg,fg,text){
-    return `https://placehold.co/${w}x${h}/${bg}/${fg}?text=${encodeURIComponent(text)}&font=montserrat`;
+  /* `label` is kept as the accessible/dev-facing name but intentionally
+     not baked into the image — real photography has no text on it, and
+     overlaying it under real page headlines (hero, banners) looked like
+     a collision. Swap these URLs for real photos whenever ready. */
+  function ph(w,h,bg,fg,label){
+    return `https://placehold.co/${w}x${h}/${bg}/${bg}`;
   }
 
   const BEIGE="E8DCC7", CREAM="F3ECE0", BLUSH="EEDDD3", SAGE="93A188", TAUPE="AB9578", CHARCOAL="2A251E", IVORY="FAF7F1";
