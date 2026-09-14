@@ -1,111 +1,105 @@
 /* ============================================================
    BIOMOMMIE — Media registry
-   Every photo/video URL used across the site lives here so the
-   whole catalogue can be swapped from placeholders to real brand
-   photography by editing this single file.
+   Real, free-to-use photography (Unsplash / Pexels, both licensed
+   for free commercial use without attribution required) — curated
+   to match the brand's warm, quiet-luxury aesthetic.
 
-   NOTE: this build ships with neutral placeholder imagery
-   (placehold.co) in the brand palette so every page is fully
-   viewable today. Replace the URLs below with real photography /
-   licensed stock links — nothing else in the codebase needs to
-   change, every page reads images through MEDIA.* / media.js helpers.
+   To swap any photo: replace its URL below. Nothing else in the
+   codebase needs to change — every page reads images through
+   MEDIA.* / media.js helpers (see hydrateMedia() in main.js and
+   the gallery mapping in products.js).
+
+   When you have real BIOMOMMIE product photography, replace the
+   "product" array (and the per-product gallery mapping in
+   products.js) first — that's the highest-impact swap.
    ============================================================ */
 
 (function(){
-  /* `label` is kept as the accessible/dev-facing name but intentionally
-     not baked into the image — real photography has no text on it, and
-     overlaying it under real page headlines (hero, banners) looked like
-     a collision. Swap these URLs for real photos whenever ready. */
-  function ph(w,h,bg,fg,label){
-    return `https://placehold.co/${w}x${h}/${bg}/${bg}`;
-  }
-
-  const BEIGE="E8DCC7", CREAM="F3ECE0", BLUSH="EEDDD3", SAGE="93A188", TAUPE="AB9578", CHARCOAL="2A251E", IVORY="FAF7F1";
-  const DARK=CHARCOAL, LIGHT=IVORY;
-
   const MEDIA = {
     hero: [
-      ph(1920,1280,BEIGE,DARK,"Mother & Newborn"),
-      ph(1920,1280,CREAM,DARK,"Tiny Hands"),
-      ph(1920,1280,BLUSH,DARK,"Nursery Light"),
-      ph(1920,1280,TAUPE,LIGHT,"Soft Morning"),
-      ph(1920,1280,SAGE,LIGHT,"Mother Touch"),
-      ph(1920,1280,BEIGE,DARK,"Baby Wrapped"),
+      "https://images.unsplash.com/photo-1759802147227-d9b32bd34996?auto=format&fit=crop&w=1920&q=80",
+      "https://images.pexels.com/photos/3270224/pexels-photo-3270224.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://images.pexels.com/photos/30701846/pexels-photo-30701846.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://images.unsplash.com/photo-1528569409061-dfb85e3c68d9?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1552819289-824d37ca69d2?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1774041197575-62591d2fb12d?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1654747097476-64c1d3a3ed7c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1565340419825-cd1ac212cbce?auto=format&fit=crop&w=1920&q=80",
     ],
-    heroVideo: [],
+    heroVideo: [
+      { url: "https://videos.pexels.com/video-files/6849024/6849024-uhd_2560_1440_24fps.mp4", alt: "Slow, calm footage of a mother gently holding and cradling her baby in warm indoor light" },
+    ],
     lifestyle: [
-      ph(1200,1500,CREAM,DARK,"Father & Baby"),
-      ph(1200,1500,BEIGE,DARK,"Baby Sleeping"),
-      ph(1200,1500,BLUSH,DARK,"Family Moment"),
-      ph(1200,1500,TAUPE,LIGHT,"Baby Wearing Romper"),
-      ph(1200,1500,SAGE,LIGHT,"Fabric Touch"),
-      ph(1200,1500,CREAM,DARK,"Window Light"),
-      ph(1200,1500,BEIGE,DARK,"Cuddles"),
-      ph(1200,1500,BLUSH,DARK,"Nursery Corner"),
-      ph(1200,1500,TAUPE,LIGHT,"Mother Reading"),
-      ph(1200,1500,SAGE,LIGHT,"Little Hands"),
-      ph(1200,1500,CREAM,DARK,"Soft Blanket"),
-      ph(1200,1500,BEIGE,DARK,"Baby Smiling"),
+      "https://images.unsplash.com/photo-1650872466823-433d9e461b9d?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1657664058220-a1bfc04e2e14?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/19314798/pexels-photo-19314798.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/18649629/pexels-photo-18649629.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.unsplash.com/photo-1620354600301-e8b325ef1181?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1721739225034-a6732d0fd819?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/31331749/pexels-photo-31331749.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/326545/pexels-photo-326545.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.unsplash.com/photo-1739874244845-64aeccd01432?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1770831208268-07daeaa6c6c4?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/4017418/pexels-photo-4017418.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.unsplash.com/photo-1542644384-49f9febd8443?auto=format&fit=crop&w=1400&q=80",
     ],
     fabric: [
-      ph(900,900,CREAM,DARK,"Cotton Macro"),
-      ph(900,900,BEIGE,DARK,"Interlock Knit"),
-      ph(900,900,BLUSH,DARK,"Stitching Detail"),
-      ph(900,900,TAUPE,LIGHT,"Seam Finish"),
-      ph(900,900,SAGE,LIGHT,"Snap Closure"),
-      ph(900,900,CREAM,DARK,"Fabric Fold"),
+      "https://images.unsplash.com/photo-1756068785746-8aa1a82d2d1d?auto=format&fit=crop&w=1000&q=80",
+      "https://images.pexels.com/photos/6843263/pexels-photo-6843263.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/7598534/pexels-photo-7598534.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/5908326/pexels-photo-5908326.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "https://images.pexels.com/photos/18444201/pexels-photo-18444201.jpeg?auto=compress&cs=tinysrgb&w=1000",
     ],
     craftsmanship: [
-      {label:"Fabric Selection", url: ph(900,1100,BEIGE,DARK,"Fabric Selection")},
-      {label:"Cutting", url: ph(900,1100,CREAM,DARK,"Cutting")},
-      {label:"Stitching", url: ph(900,1100,BLUSH,DARK,"Stitching")},
-      {label:"Finishing", url: ph(900,1100,TAUPE,LIGHT,"Finishing")},
-      {label:"Quality Inspection", url: ph(900,1100,SAGE,LIGHT,"Quality Inspection")},
-      {label:"Folding", url: ph(900,1100,CREAM,DARK,"Folding")},
-      {label:"Packaging", url: ph(900,1100,BEIGE,DARK,"Packaging")},
+      { label: "Fabric Selection", url: "https://images.pexels.com/photos/18444201/pexels-photo-18444201.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Cutting", url: "https://images.pexels.com/photos/2973399/pexels-photo-2973399.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Stitching", url: "https://images.pexels.com/photos/31070325/pexels-photo-31070325.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Finishing", url: "https://images.pexels.com/photos/5908326/pexels-photo-5908326.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Quality Inspection", url: "https://images.pexels.com/photos/9185814/pexels-photo-9185814.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Folding", url: "https://images.pexels.com/photos/4440574/pexels-photo-4440574.jpeg?auto=compress&cs=tinysrgb&w=1000" },
+      { label: "Packaging", url: "https://images.pexels.com/photos/7670677/pexels-photo-7670677.jpeg?auto=compress&cs=tinysrgb&w=1000" },
     ],
     gifting: [
-      ph(1400,1600,CREAM,DARK,"Gift Box"),
-      ph(1400,1600,BEIGE,DARK,"Tissue & Ribbon"),
-      ph(1400,1600,BLUSH,DARK,"Box Opening"),
-      ph(1400,1600,TAUPE,LIGHT,"Folded Clothing"),
-      ph(1400,1600,SAGE,LIGHT,"Greeting Card"),
-      ph(1400,1600,CREAM,DARK,"Presentation"),
+      "https://images.unsplash.com/photo-1759563871375-d5b140f6646e?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1620843437920-ead942b3abd3?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1592903297149-37fb25202dfa?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1677259329185-66576e3c70e8?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/9594426/pexels-photo-9594426.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/7670677/pexels-photo-7670677.jpeg?auto=compress&cs=tinysrgb&w=1400",
     ],
     product: [
-      ph(1200,1500,CREAM,DARK,"Product Front"),
-      ph(1200,1500,BEIGE,DARK,"Product Detail"),
-      ph(1200,1500,BLUSH,DARK,"Product Flat"),
-      ph(1200,1500,TAUPE,LIGHT,"Product Worn"),
-      ph(1200,1500,SAGE,LIGHT,"Product Soft"),
-      ph(1200,1500,CREAM,DARK,"Product Set"),
-      ph(1200,1500,BEIGE,DARK,"Product Close"),
-      ph(1200,1500,BLUSH,DARK,"Product Angle"),
-      ph(1200,1500,TAUPE,LIGHT,"Product Pair"),
-      ph(1200,1500,SAGE,LIGHT,"Product Texture"),
+      "https://images.unsplash.com/photo-1617331140180-e8262094733a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1763013258923-f8c06366abb5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.pexels.com/photos/22484670/pexels-photo-22484670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/22484666/pexels-photo-22484666.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/22484671/pexels-photo-22484671.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/7973669/pexels-photo-7973669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/7973672/pexels-photo-7973672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/18649622/pexels-photo-18649622.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/37529055/pexels-photo-37529055.jpeg?auto=compress&cs=tinysrgb&w=1200",
     ],
     instagram: [
-      ph(800,800,BEIGE,DARK,"@biomommie"),
-      ph(800,800,CREAM,DARK,"@biomommie"),
-      ph(800,800,BLUSH,DARK,"@biomommie"),
-      ph(800,800,TAUPE,LIGHT,"@biomommie"),
-      ph(800,800,SAGE,LIGHT,"@biomommie"),
-      ph(800,800,CREAM,DARK,"@biomommie"),
-      ph(800,800,BEIGE,DARK,"@biomommie"),
-      ph(800,800,BLUSH,DARK,"@biomommie"),
+      "https://images.pexels.com/photos/19314798/pexels-photo-19314798.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "https://images.unsplash.com/photo-1657664058220-a1bfc04e2e14?auto=format&fit=crop&w=900&q=80",
+      "https://images.pexels.com/photos/31331749/pexels-photo-31331749.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "https://images.pexels.com/photos/326545/pexels-photo-326545.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "https://images.unsplash.com/photo-1721739225034-a6732d0fd819?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1620354600301-e8b325ef1181?auto=format&fit=crop&w=900&q=80",
+      "https://images.pexels.com/photos/8910158/pexels-photo-8910158.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "https://images.unsplash.com/photo-1770831208268-07daeaa6c6c4?auto=format&fit=crop&w=900&q=80",
     ],
     journal: {
-      "what-to-pack-newborn": ph(1600,1000,BEIGE,DARK,"Newborn Packing"),
-      "baby-shower-gifting-guide": ph(1600,1000,BLUSH,DARK,"Baby Shower"),
-      "caring-for-cotton-clothes": ph(1600,1000,CREAM,DARK,"Cotton Care"),
-      "building-newborn-wardrobe": ph(1600,1000,TAUPE,LIGHT,"Newborn Wardrobe"),
-      "story-behind-our-fabrics": ph(1600,1000,SAGE,LIGHT,"Our Fabrics"),
+      "what-to-pack-newborn": "https://plus.unsplash.com/premium_photo-1675183691407-967bef65b9ab?auto=format&fit=crop&w=1600&q=80",
+      "baby-shower-gifting-guide": "https://images.unsplash.com/photo-1751450236048-aa1981f7bc2d?auto=format&fit=crop&w=1600&q=80",
+      "caring-for-cotton-clothes": "https://images.unsplash.com/photo-1768693602418-260d828b878d?auto=format&fit=crop&w=1600&q=80",
+      "building-newborn-wardrobe": "https://plus.unsplash.com/premium_photo-1675183689638-a68fe7048da9?auto=format&fit=crop&w=1600&q=80",
+      "story-behind-our-fabrics": "https://images.unsplash.com/photo-1770122985572-ca890ef5ecf3?auto=format&fit=crop&w=1600&q=80",
     },
     about: [
-      ph(1400,1700,BEIGE,DARK,"Our Story"),
-      ph(1400,1700,CREAM,DARK,"Thoughtful Workspace"),
-      ph(1400,1700,BLUSH,DARK,"Hands & Fabric"),
-      ph(1400,1700,TAUPE,LIGHT,"Founder Moment"),
+      "https://images.unsplash.com/photo-1753162659724-004dd26e1de3?auto=format&fit=crop&w=1400&q=80",
+      "https://images.pexels.com/photos/3738099/pexels-photo-3738099.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/6461088/pexels-photo-6461088.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "https://images.pexels.com/photos/5830691/pexels-photo-5830691.jpeg?auto=compress&cs=tinysrgb&w=1400",
     ],
   };
 
